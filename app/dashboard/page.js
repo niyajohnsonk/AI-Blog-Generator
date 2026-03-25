@@ -92,13 +92,7 @@ export default function Dashboard() {
                   <p className="text-gray-500 text-sm mb-6">
                     Generated on {new Date(selected.created_at).toLocaleDateString()} ·{' '}
                     
-                      href={selected.yt_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-400 hover:underline"
-                    >
-                      Watch video
-                    </a>
+                      <a href={selected.yt_url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Watch video</a>
                   </p>
                   <div className="text-gray-300 whitespace-pre-wrap leading-relaxed">
                     {selected.content}

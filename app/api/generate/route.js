@@ -1,6 +1,6 @@
 import { YoutubeTranscript } from 'youtube-transcript'
 import { generateBlog } from '@/lib/gemini'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@supabase/supabase-js'
 import { NextResponse } from 'next/server'
 
 export async function POST(request) {
@@ -23,6 +23,11 @@ export async function POST(request) {
     const title = lines[0].replace(/^#\s*/, '')
 
     // Step 4: Save to Supabase
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_ROLE_KEY
+    )
+
     const { data, error } = await supabase
       .from('blogs')
       .insert([{ user_id: userId, yt_url: url, title, content: blogContent }])
