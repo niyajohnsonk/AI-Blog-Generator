@@ -20,7 +20,10 @@
     "@tailwindcss/postcss": "next",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
-    "postcss": "^8.4.31",
+    "postcss": "^8.5.14",
     "tailwindcss": "next"
+  },
+  "overrides": {
+    "postcss": "^8.5.14"
   }
 }
